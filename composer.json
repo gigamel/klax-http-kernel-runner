@@ -1,0 +1,48 @@
+{
+  "name": "klax/http-kernel-runner",
+  "description": "HTTP Kernel runner",
+  "require": {
+    "php": "^8.3",
+    "klax/container": "^0.0.1",
+    "klax/kernel-contract": "^0.0.1",
+    "klax/http-kernel-contract": "^0.0.1",
+    "klax/http-router-contracts": "^0.0.1",
+    "klax/http-runner-contracts": "^1.0.0",
+    "psr/http-message": "^2.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Klax\\HttpKernel\\Runner\\": "src/"
+    }
+  },
+  "repositories": {
+    "klax/kernel-contract": {
+      "type": "vcs",
+      "url": "https://github.com/gigamel/klax-kernel-contract.git"
+    },
+    "klax/http-kernel-contract": {
+      "type": "vcs",
+      "url": "https://github.com/gigamel/klax-http-kernel-contract.git"
+    },
+    "klax/container-contract": {
+      "type": "vcs",
+      "url": "https://github.com/gigamel/klax-container-contract.git"
+    },
+    "klax/container": {
+      "type": "vcs",
+      "url": "https://github.com/gigamel/klax-container.git"
+    },
+    "klax/http-protocol": {
+      "type": "vcs",
+      "url": "https://github.com/gigamel/klax-http-protocol.git"
+    },
+    "klax/http-router-contracts": {
+      "type": "vcs",
+      "url": "https://github.com/gigamel/klax-http-router-contracts.git"
+    },
+    "klax/http-runner-contracts": {
+      "type": "vcs",
+      "url": "https://github.com/gigamel/klax-http-runner-contracts.git"
+    }
+  }
+}
