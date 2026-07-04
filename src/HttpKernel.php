@@ -10,6 +10,7 @@ use Klax\Container\Contract\ContainerInterface;
 use Klax\Http\Router\Contract\RouteCollectionInterface;
 use Klax\Http\Runner\Contract\HttpRunnerInterface;
 use Klax\HttpKernel\Runner\Contract\HttpKernelInterface;
+use Psr\Container\ContainerExceptionInterface;
 use Psr\Container\ContainerInterface as PsrContainerInterface;
 use Psr\Http\Message\ServerRequestInterface;
 
@@ -38,12 +39,13 @@ class HttpKernel implements HttpKernelInterface
         // primitive loading
 
         foreach ($this->arrayFileLoader->load($routesFilesMap) as $routesFile) {
-            foreach ($this->closureFileLoader->load($routesFile) as $routeConfiguratorClosure) {
-                $routeConfiguratorClosure($this->routeCollection);
-            }
+            ($this->closureFileLoader->load($routesFile))($this->routeCollection);
         }
     }
 
+    /**
+     * @throws ContainerExceptionInterface
+     */
     public function run(PsrContainerInterface $container): void
     {
         $container->get(HttpRunnerInterface::class)->run($container->get(
